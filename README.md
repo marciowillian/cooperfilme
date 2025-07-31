@@ -19,6 +19,7 @@ O aplicativo estará disponível em `http://localhost:8081`.
 Documentação da aplicação com Swagger (necessário efetuar login com um dos usuarios abaixo):
 - http://localhost:8081/swagger-ui/index.html
 
+Para facilitar os testes, usar os arquivos COOPERFILME_ENV.postman_environment e cooperfilme.postman_collection para importar no postman as requisições e ENV
 
 ## Credenciais Iniciais
 
