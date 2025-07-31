@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "0f1b32e8-ebed-4087-93d0-9f178a6f2882",
+		"name": "cooperfilme",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37282458"
+	},
+	"item": [
+		{
+			"name": "Protected",
+			"item": [
+				{
+					"name": "Dados do Roteiro",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "analista@cooperfilme.com.br",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{api_port}}/api/scripts/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{api_port}}",
+							"path": [
+								"api",
+								"scripts",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Scripts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "analista@cooperfilme.com.br",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{api_port}}/api/scripts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{api_port}}",
+							"path": [
+								"api",
+								"scripts"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "AGUARDANDO_ANALISE",
+									"disabled": true
+								},
+								{
+									"key": "clientEmail",
+									"value": "marcio@email.com",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2025-07-01T00:00:00",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2025-07-29T23:59:59\n",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mudança de Status",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "aprovador1@cooperfilme.com.br",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{api_port}}/api/scripts/2/status?newStatus=APROVADO&justification=testando mudanca de status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{api_port}}",
+							"path": [
+								"api",
+								"scripts",
+								"2",
+								"status"
+							],
+							"query": [
+								{
+									"key": "newStatus",
+									"value": "APROVADO"
+								},
+								{
+									"key": "justification",
+									"value": "testando mudanca de status"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "aprovador3@cooperfilme.com.br",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{api_port}}/api/scripts/2/vote?approved=true&comments=otimo roteiro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{api_port}}",
+							"path": [
+								"api",
+								"scripts",
+								"2",
+								"vote"
+							],
+							"query": [
+								{
+									"key": "approved",
+									"value": "true"
+								},
+								{
+									"key": "comments",
+									"value": "otimo roteiro"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "Listar Roteiros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{api_port}}/api/scripts/status/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{api_port}}",
+							"path": [
+								"api",
+								"scripts",
+								"status",
+								"7"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enviar Roteiro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"content\": \"**Título: O Último Trem para Aurora**\\n\\n**Cena 1: Estação Central – Noite**\\nSom de apitos e passos apressados. Câmera foca em LUCAS (30), olhando o relógio com ansiedade.\\n\\n**LUCAS:** (voz trêmula) Se eu perder esse trem, perco tudo.\\n\\n**Cena 2: Vagão do Trem – Alguns minutos depois**\\nLuzes piscam, passageiros quietos. Ele encontra CLARA (28), surpresa.\\n\\n**CLARA:** Você aqui? Depois de tudo?\\n\\n**LUCAS:** Não podia deixar você ir sem saber a verdade.\\n\\n**Cena 3: Flashback – Dia da Separação**\\nBriga intensa na sala de estar. LUCAS quebra um vaso sem querer.\\n\\n**CLARA:** (chorando) Eu te amei, Lucas. Mas não posso mais viver com segredos.\\n\\n**Cena 4: Estação Aurora – Amanhecer**\\nTrem para. Os dois em silêncio, mãos entrelaçadas.\\n\\n**LUCAS:** Será que podemos tentar de novo?\\n\\n**CLARA:** Vamos descer e descobrir.\\n\\n(Câmera se afasta, mostrando a cidade despertando com o sol.)\\n\\n**FIM.**\",\r\n  \"clientName\": \"Marcio Willian\",\r\n  \"clientEmail\": \"marcio@gmail.com\",\r\n  \"clientPhone\": \"98999999999\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{api_port}}/api/scripts/submit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{api_port}}",
+							"path": [
+								"api",
+								"scripts",
+								"submit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login na API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"analista@cooperfilme.com.br\",\r\n  \"password\": \"password\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{api_port}}/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{api_port}}",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
